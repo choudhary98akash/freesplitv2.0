@@ -1,5 +1,4 @@
 
-
 .container {
   max-width: 350px;
   margin: 0 auto;
@@ -14,17 +13,19 @@
 
 .smallTitle{
   color: #202020;
-  letter-spacing: 1.5;
+  font-weight: 400;
+  font-size: 15px;
+  letter-spacing:   0.2cap;
 }
 
 .logo {
   width: 300px;
   height: auto;
-  margin-bottom: 50px;
+  margin-bottom: 10px;
 }
 
 .loginButton {
-  background-color: #444;
+  background-color: var(--secondary);
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -34,6 +35,7 @@
   cursor: pointer;
   width: 100%;
   max-width: 300px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
 
@@ -42,7 +44,7 @@
 }
 
 .signupButton {
-  background-color:#444;
+  background-color: var(--secondary);
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -57,10 +59,17 @@
 }
 
 .signupButton:hover {
-  background-color: #4caf50;
+  background-color: var(--apple-green);
   box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.15);
 }
 .loginButton:hover {
-  background-color: #4caf50;
+  background-color: var(--apple-green);
   box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.15);
+}
+.tag{
+  opacity: 0.8;
+  color: #333;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-bottom: 50px;
 }
