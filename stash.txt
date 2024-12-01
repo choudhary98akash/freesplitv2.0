@@ -1,0 +1,97 @@
+"use client"
+import React, { useState } from 'react';
+import styles from './signup.module.css';
+
+const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+export default function SignUp() {
+  const [email, setEmail] = useState('');
+  const [isOtpButtonVisible, setIsOtpButtonVisible] = useState(false);
+  const [isCreateAccoutnVisible, setIsCreateAccountVisible] = useState(false);
+
+  const handleEmailChange = (event) => {
+    const newEmail = event.target.value;
+    setEmail(newEmail);
+
+    // Validate email using regex and update isOtpButtonVisible state
+    setIsOtpButtonVisible(emailRegex.test(newEmail));
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault(); // Prevent default form submission behavior
+
+    // Perform additional validation or API calls as needed
+    // (e.g., backend validation, sending OTP using an API)
+
+    if (isOtpButtonVisible) {
+      // Handle OTP sending logic here (e.g., display success message or redirect)
+      setIsCreateAccountVisible(true);
+      alert('OTP sent successfully!');
+    } else {
+      alert('Please enter a valid email address.');
+    }
+  };
+
+  return (
+    <div className={styles.container}>
+      <h1 className={styles.heading}>Create Your Account</h1>
+      <form className={styles.form} onSubmit={handleSubmit}>
+        <div className={styles.inputGroup}>
+          <label className={styles.label}>Email address</label>
+          <div className={styles.inputContainer}>
+            <input
+              type="email"
+              className={styles.input}
+              placeholder="email@address.com"
+              required
+              value={email}
+              onChange={handleEmailChange}
+            />
+          </div>
+        </div>
+
+        {/* Conditionally render OTP button based on isOtpButtonVisible */}
+        
+          <div className={styles.inputGroup}>
+            <button className={styles.submitButton} type="submit">
+              Send OTP
+            </button>
+          </div>
+        
+
+        <div className={styles.inputGroup}>
+          <label className={styles.checkboxContainer}>
+            <input type="checkbox" />
+            Receive news, updates and deals
+          </label>
+        </div>
+
+        {/* Submit button always shows, but disabled when !isOtpButtonVisible */}
+        {isCreateAccoutnVisible &&(<button
+          className={styles.submitButton}
+          type="submit"
+          disabled={!isOtpButtonVisible}
+        >
+          Create Account
+        </button>)}
+
+        <p className={styles.footerText}>
+          By creating an account, you agree to the{" "}
+          <a href="#" className={styles.link}>
+            Terms of Service
+          </a>{" "}
+          and{" "}
+          <a href="#" className={styles.link}>
+            Privacy Policy
+          </a>.
+        </p>
+        <p className={styles.footerText}>
+          Already have an account?{" "}
+          <a href="/login" className={styles.createAccountLink}>
+            Log in here
+          </a>
+        </p>
+      </form>
+    </div>
+  );
+}

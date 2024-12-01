@@ -13,7 +13,7 @@ export default function Home() {
       <button onClick={() => router.push('/login')} className={styles.loginButton}>
         LOGIN
       </button>
-      <button onClick={() => alert('signup has been clicked ....ta daaa....')} className={styles.signupButton}>
+      <button onClick={() => router.push('/signup')} className={styles.signupButton}>
         SIGNUP
       </button>
     </div>

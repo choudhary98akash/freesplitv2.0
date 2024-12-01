@@ -1,10 +1,11 @@
 import styles from "./login.module.css";
+import Link from 'next/link';
 
 export default function Login() {
   return (
     <div className={styles.container}>
       <div className={styles.title}>
-      <span className={styles.heading}>LOGIN</span>
+        <span className={styles.heading}>LOGIN</span>
       </div>
       <form className={styles.form}>
         {/* Email Input */}
@@ -34,11 +35,11 @@ export default function Login() {
             />
           </div>
         </div>
-
-        {/* Forgot Password */}
-        <a href="/forgot-password" className={styles.forgotPassword}>
-          Forgot your password?
-        </a>
+      
+        <Link className={styles.forgotPassword} href="/forgotPassword">
+          {/* <a className={styles.forgotPassword}>Forgot Password?</a> */}
+          Forgot Password?
+        </Link>
 
         {/* Submit Button */}
         <button type="submit" className={styles.submitButton}>
