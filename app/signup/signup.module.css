@@ -13,6 +13,10 @@
     align-items: center;
     background-color: var(--background);
   }
+
+  .headLogo{
+    margin-bottom: 50px;
+  }
   
   /* Heading */
   .heading {

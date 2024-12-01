@@ -4,6 +4,7 @@
   --primary : #333;
   --secondary : #444;
   --apple-green : #4caf50;
+  --border-color : rgb(207, 196, 196,0.7);
 }
 
 @media (prefers-color-scheme: dark) {

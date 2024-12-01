@@ -41,6 +41,17 @@ export default function ForgotPassword() {
         {otpSent && (
           <>
             <div className={styles.inputGroup}>
+              <label className={styles.label}>Enter OTP</label>
+              <div className={styles.inputContainer}>
+                <input
+                  type="text"
+                  className={styles.input}
+                  placeholder="Enter OTP"
+                  required
+                />
+              </div>
+            </div>
+            <div className={styles.inputGroup}>
               <label className={styles.label}>New Password</label>
               <div className={styles.inputContainer}>
                 <input
