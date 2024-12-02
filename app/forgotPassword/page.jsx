@@ -2,10 +2,11 @@
 import { useState } from "react";
 import styles from "./forgotpassword.module.css";
 import Link from 'next/link';
+import { useRouter } from "next/navigation";
 
 export default function ForgotPassword() {
   const [otpSent, setOtpSent] = useState(false);
-
+  const router = useRouter();
   const handleSendOtp = (e) => {
     e.preventDefault();
     // Logic for sending OTP goes here
@@ -15,7 +16,11 @@ export default function ForgotPassword() {
   const handleResetPassword = (e) => {
     e.preventDefault();
     // Logic for resetting the password goes here
-    alert("Password reset successfully!");
+
+    if(otpSent){
+      alert("Password reset successfully!");
+      router.back();
+    }
   };
 
   return (

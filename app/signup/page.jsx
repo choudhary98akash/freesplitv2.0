@@ -2,10 +2,12 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import styles from "./signup.module.css";
+import { useRouter } from "next/navigation";
 
 const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
 export default function SignUp() {
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [isOtpSent, setIsOtpSent] = useState(false);
   const [otp, setOtp] = useState("");
@@ -33,9 +35,14 @@ export default function SignUp() {
       alert("Passwords do not match!");
       return;
     }
+    else{
+      alert("Account created successfully!");
+      router.push('/login');
+    }
 
     // Simulate registration logic (e.g., API call to register the user)
-    alert("Account created successfully!");
+    
+    
     // Redirect user to login page or dashboard
   };
 
